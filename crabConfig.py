@@ -1,7 +1,7 @@
 from CRABClient.UserUtilities import config
 config = config()
 
-config.General.requestName = 'crabTest'
+config.General.requestName = 'SendToUAF'
 config.General.workArea = 'crab_projects'
 config.General.transferOutputs = True
 
@@ -18,6 +18,8 @@ config.Data.publication = True
 
 #config.Site.storageSite = 'T2_CH_CERN'
 #config.Data.outLFNDirBase = '/store/user/ddiaz/'
+##config.Site.storageSite = 'T3_CH_CERNBOX'
+##config.Data.outLFNDirBase = '/store/user/ddiaz/L1LLPSample'
 config.Site.storageSite = 'T2_US_UCSD'
 config.Data.outLFNDirBase = '/store/user/ddiaz/L1LLPSample'
 
