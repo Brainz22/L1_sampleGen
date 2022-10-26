@@ -20,7 +20,7 @@
 # cmsDriver command
 # 
 cmsDriver.py  \
---python_filename TSG-Phase2HLTTDRSpring22DIGI-00085_test_cfg.py \
+--python_filename TSG-Phase2HLTTDRSpring22DIGI-00085_TEST_cfg.py \
 --eventcontent FEVTDEBUGHLT \
 --pileup 'AVE_140_BX_25ns,{"B":(-3,3)}' \
 --customise SLHCUpgradeSimulations/Configuration/aging.customise_aging_1000 \
