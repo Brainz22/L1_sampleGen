@@ -11,7 +11,7 @@ config.General.transferOutputs = True
 
 config.JobType.pluginName = 'Analysis'
 #config.JobType.psetName = 'TSG-PhaseIISpring22GS-00085_1_cfg.py'
-config.JobType.psetName = 'TSG-Phase2HLTTDRSpring22DIGI-00085_TEST_cfg.py'
+config.JobType.psetName = 'TSG-Phase2HLTTDRSpring22DIGI-00085_cfg.py'
 
 config.Data.splitting = 'FileBased'
 config.Data.unitsPerJob = 5

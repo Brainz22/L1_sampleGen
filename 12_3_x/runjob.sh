@@ -13,7 +13,7 @@ cmsenv
 cd - 
 pwd
 ls
-cmsRun TSG-Phase2HLTTDRSpring22DIGI-00085_TEST2_cfg.py $2 $3
+cmsRun TSG-Phase2HLTTDRSpring22DIGI-00085_cfg.py $2 $3
 xrdcp *.root root://redirector.t2.ucsd.edu:1095/$4 
 #tar -zxvf cms_setup.tar.gz
 #cd CMSSW_12_3_6/src
