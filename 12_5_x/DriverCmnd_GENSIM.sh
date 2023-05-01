@@ -14,7 +14,7 @@ Configuration/GenProduction/python/TSG-Phase2Fall22GS-00122-fragment.py \
 --era Phase2C17I13M9 \
 --no_exec \
 --mc \
--n 30 \
+-n 100 \
 --fileout file:GS.root
 #--fileout file:TSG-Phase2Fall22GS-00122.root \
 #--python_filename TSG-Phase2Fall22GS-00122_1_cfg.py \

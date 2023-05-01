@@ -14,6 +14,6 @@ cmsDriver.py  \
 --era Phase2C17I13M9 \
 --no_exec \
 --mc \
--n 30 \
---fileout file:GEN-SIMDIGIRAW.root
+-n 100 \
+--fileout file:GENSIMDIGIRAW.root
 #--filein /store/user/ddiaz/L1LLPSample/HiddenGluGluH_mH-125_Phi-30_ctau-100_TuneCP5_14TeV-pythia8/crab_100kGenSim_Spring22_UAF/220915_181959/0000/TSG-PhaseIISpring22GS-00085_411.root \
