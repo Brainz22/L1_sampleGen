@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo "System software: `cat /etc/redhat-release`" #Operating System on that node
 export X509_USER_PROXY=$1
 voms-proxy-info -all
 voms-proxy-info -all -file $1
@@ -23,4 +24,5 @@ cmsRun MakeDIGI_cfg.py maxEvents=$4 outputFile=$2
 echo "Do an ls to see if output roots both generated"
 ls
 echo @@@@@@@@@@  COPYING OUTPUT @@@@@@@@@@@@@@@@@@@@@2
-xrdcp *.root root://redirector.t2.ucsd.edu:1095/$4 
+echo "copying to: " $5
+xrdcp HiddenGluGluH*.root root://redirector.t2.ucsd.edu:1095/$5 
