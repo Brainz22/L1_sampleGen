@@ -11,8 +11,8 @@ from Configuration.Eras.Era_Phase2C17I13M9_cff import Phase2C17I13M9
 # setup 'analysis'  options
 options = VarParsing.VarParsing ('analysis')
 # setup any defaults you want
-options.maxEvents = 5 # -1 means all events
-options.outputFile = 'file:GENSIMDIGIRAW.root'
+options.maxEvents = -1 # -1 means all events
+#options.outputFile = 'file:GENSIMDIGIRAW.root'
 
 # get and parse the command line arguments
 options.parseArguments()
@@ -110,8 +110,8 @@ process.FEVTDEBUGHLToutput = cms.OutputModule("PoolOutputModule",
         dataTier = cms.untracked.string('GEN-SIM-DIGI-RAW'),
         filterName = cms.untracked.string('')
     ),
-    #fileName = cms.untracked.string('file:GENSIMDIGIRAW.root'),
-    fileName = cms.untracked.string('file:'+options.outputFile),
+    fileName = cms.untracked.string('file:GENSIMDIGIRAW.root'),
+    #fileName = cms.untracked.string('file:'+options.outputFile),
     outputCommands = process.FEVTDEBUGHLTEventContent.outputCommands,
     splitLevel = cms.untracked.int32(0)
 )
