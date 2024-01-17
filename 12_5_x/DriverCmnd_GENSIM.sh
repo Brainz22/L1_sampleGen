@@ -1,6 +1,6 @@
 # cmsDriver command
 cmsDriver.py \
-Configuration/GenProduction/python/TSG-Phase2Fall22GS-00122-fragment.py \
+Configuration/GenProduction/python/TSG-Phase2Fall22GS-00221-fragment.py \
 --python_filename MakeGS_cfg.py \
 --eventcontent RAWSIM \
 --customise Configuration/DataProcessing/Utils.addMonitoring \
