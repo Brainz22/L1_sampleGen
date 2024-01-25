@@ -5,6 +5,21 @@ theFragment=TSG-Phase2Fall22GS-00122-fragment.py
 nEvents=5
 rm -f $theConfig
 
+# Parse named arguments
+for i in "$@"
+do
+case $i in
+    --theFragment=*)
+    theFragment="${i#*=}"
+    shift # past argument=value
+    ;;
+    *)
+          # unknown option
+    ;;
+esac
+done
+
+
 cmsDriver.py \
 Configuration/GenProduction/python/${theFragment} \
 --python_filename $theConfig \

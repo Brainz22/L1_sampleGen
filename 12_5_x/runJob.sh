@@ -15,10 +15,10 @@ cmsenv
 cd - 
 
 echo @@@@@@@@@@  RUNNING STEP 1 @@@@@@@@@@@@@@@@@@@@@@
-cmsRun MakeGS_cfg.py maxEvents=$4
+cmsRun MakeGS_cfg.py maxEvents=$4 > /dev/null 2>&1
 
 echo @@@@@@@@@@  RUNNING STEP 2 @@@@@@@@@@@@@@@@@@@@@@
-cmsRun MakeDIGI_cfg.py maxEvents=$4
+cmsRun MakeDIGI_cfg.py maxEvents=$4 > /dev/null 2>&1
 
 #Kill old version of CMSSW
 rm -rf CMSSW_12_5_2_patch1
