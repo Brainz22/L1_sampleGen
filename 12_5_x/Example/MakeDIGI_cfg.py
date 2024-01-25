@@ -4,18 +4,8 @@
 # Source: /local/reps/CMSSW/CMSSW/Configuration/Applications/python/ConfigBuilder.py,v 
 # with command line options: --python_filename MakeDIGI_cfg.py --eventcontent FEVTDEBUGHLT --pileup AVE_200_BX_25ns --customise SLHCUpgradeSimulations/Configuration/aging.customise_aging_1000,Configuration/DataProcessing/Utils.addMonitoring --datatier GEN-SIM-DIGI-RAW --pileup_input dbs:/MinBias_TuneCP5_14TeV-pythia8/Phase2Fall22GS-HCalDetIDFix_125X_mcRun4_realistic_v2-v1/GEN-SIM --conditions 125X_mcRun4_realistic_v2 --step DIGI:pdigi_valid,L1TrackTrigger,L1,DIGI2RAW,HLT:@fake2 --geometry Extended2026D88 --nStreams 3 --filein file:GS.root --era Phase2C17I13M9 --no_exec --mc -n 100 --fileout file:GENSIMDIGIRAW.root
 import FWCore.ParameterSet.Config as cms
-import FWCore.ParameterSet.VarParsing as VarParsing
 
 from Configuration.Eras.Era_Phase2C17I13M9_cff import Phase2C17I13M9
-
-# setup 'analysis'  options
-options = VarParsing.VarParsing ('analysis')
-# setup any defaults you want
-options.maxEvents = -1 # -1 means all events
-#options.outputFile = 'file:GENSIMDIGIRAW.root'
-
-# get and parse the command line arguments
-options.parseArguments()
 
 process = cms.Process('HLT',Phase2C17I13M9)
 
@@ -36,7 +26,7 @@ process.load('Configuration.StandardSequences.EndOfProcess_cff')
 process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
 
 process.maxEvents = cms.untracked.PSet(
-    input = cms.untracked.int32(options.maxEvents),
+    input = cms.untracked.int32(-1),
     output = cms.optional.untracked.allowed(cms.int32,cms.PSet)
 )
 
@@ -111,7 +101,6 @@ process.FEVTDEBUGHLToutput = cms.OutputModule("PoolOutputModule",
         filterName = cms.untracked.string('')
     ),
     fileName = cms.untracked.string('file:GENSIMDIGIRAW.root'),
-    #fileName = cms.untracked.string('file:'+options.outputFile),
     outputCommands = process.FEVTDEBUGHLTEventContent.outputCommands,
     splitLevel = cms.untracked.int32(0)
 )
@@ -175,8 +164,3 @@ process = customizeHLTforMC(process)
 from Configuration.StandardSequences.earlyDeleteSettings_cff import customiseEarlyDelete
 process = customiseEarlyDelete(process)
 # End adding early deletion
-
-#Adding randomizer lines
-from IOMC.RandomEngine.RandomServiceHelper import RandomNumberServiceHelper
-randSvc = RandomNumberServiceHelper(process.RandomNumberGeneratorService)
-randSvc.populate()
