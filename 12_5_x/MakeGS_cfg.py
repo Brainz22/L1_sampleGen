@@ -2,19 +2,16 @@
 # using: 
 # Revision: 1.19 
 # Source: /local/reps/CMSSW/CMSSW/Configuration/Applications/python/ConfigBuilder.py,v 
-# with command line options: Configuration/GenProduction/python/TSG-Phase2Fall22GS-00122-fragment.py --python_filename MakeGS_cfg.py --eventcontent RAWSIM --customise Configuration/DataProcessing/Utils.addMonitoring --datatier GEN-SIM --conditions 125X_mcRun4_realistic_v2 --beamspot HLLHC14TeV --customise_commands process.source.numberEventsInLuminosityBlock=cms.untracked.uint32(100) --step GEN,SIM --nThreads 8 --geometry Extended2026D88 --era Phase2C17I13M9 --no_exec --mc -n 100 --fileout file:GS.root
+# with command line options: Configuration/GenProduction/python/TSG-Phase2Fall22GS-00122-fragment.py --python_filename MakeGS_cfg-Test.py --eventcontent RAWSIM --customise Configuration/DataProcessing/Utils.addMonitoring --datatier GEN-SIM --conditions 125X_mcRun4_realistic_v2 --beamspot HLLHC14TeV --customise_commands process.source.numberEventsInLuminosityBlock=cms.untracked.uint32(100) --step GEN,SIM --nThreads 8 --geometry Extended2026D88 --era Phase2C17I13M9 --no_exec --mc -n 5 --fileout file:GS.root
 import FWCore.ParameterSet.Config as cms
+
 import FWCore.ParameterSet.VarParsing as VarParsing
+options = VarParsing.VarParsing('analysis')
+options.maxEvents = 5
+options.parseArguments()
+
 
 from Configuration.Eras.Era_Phase2C17I13M9_cff import Phase2C17I13M9
-
-# setup 'analysis'  options
-options = VarParsing.VarParsing ('analysis')
-# setup any defaults you want
-options.maxEvents = 5 # -1 means all events
-
-# get and parse the command line arguments
-options.parseArguments()
 
 process = cms.Process('SIM',Phase2C17I13M9)
 
@@ -35,7 +32,6 @@ process.load('Configuration.StandardSequences.EndOfProcess_cff')
 process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
 
 process.maxEvents = cms.untracked.PSet(
-    #input = cms.untracked.int32(5),
     input = cms.untracked.int32(options.maxEvents),
     output = cms.optional.untracked.allowed(cms.int32,cms.PSet)
 )
@@ -75,7 +71,7 @@ process.options = cms.untracked.PSet(
 
 # Production Info
 process.configurationMetadata = cms.untracked.PSet(
-    annotation = cms.untracked.string('Configuration/GenProduction/python/TSG-Phase2Fall22GS-00122-fragment.py nevts:100'),
+    annotation = cms.untracked.string('Configuration/GenProduction/python/TSG-Phase2Fall22GS-00122-fragment.py nevts:5'),
     name = cms.untracked.string('Applications'),
     version = cms.untracked.string('$Revision: 1.19 $')
 )
@@ -267,11 +263,12 @@ process = addMonitoring(process)
 
 # Customisation from command line
 
-process.source.numberEventsInLuminosityBlock=cms.untracked.uint32(options.maxEvents)
+process.source.numberEventsInLuminosityBlock=cms.untracked.uint32(100)
 # Add early deletion of temporary data products to reduce peak memory need
 from Configuration.StandardSequences.earlyDeleteSettings_cff import customiseEarlyDelete
 process = customiseEarlyDelete(process)
 # End adding early deletion
+
 #Adding randomizer lines
 from IOMC.RandomEngine.RandomServiceHelper import RandomNumberServiceHelper
 randSvc = RandomNumberServiceHelper(process.RandomNumberGeneratorService)
