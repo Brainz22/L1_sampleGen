@@ -19,8 +19,24 @@ git clone git@github.com:ddiaz006/FastPUPPI.git -b 12_5_X
 scram b -j8
 ```
 # Set up MC generation
-```
+Mostly, one needs to set some options in submitJobs.sh before they can begin running MC generation.
 
+Most important is to point to proper directories
+
+```
+doSubmit=false #If you are just testing this will prevent actual condor submission
+dt=`date '+%Y%m%d_%H%M%S'`
+reTar=false #Only need true for first run or if you made any code edits
+
+###-----     Edit for your working area
+lxplusBase=/afs/cern.ch/work/d/ddiaz/L1SampleGen/cleanBuild
+scriptsDir=/afs/cern.ch/work/d/ddiaz/L1SampleGen/cleanBuild/L1_sampleGen/12_5_x
+ntupleDir=/afs/cern.ch/work/d/ddiaz/L1SampleGen/cleanBuild/Tuples-el8
+sampleName="HiddenGluGluH_mH-125_Phi-30_ctau-100"
+outdir="/store/user/ddiaz/L1LLPSample/"${sampleName}"_TuneCP5_14TeV-pythia8/condor_FALL22_UAF/$dt/0000/"
+NJobs=10
+NEvents=10 
+###----
 ```
 
 
