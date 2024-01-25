@@ -49,3 +49,4 @@ echo @@@@@@@@@@  COPYING OUTPUT @@@@@@@@@@@@@@@@@@@@@@
 echo "copying to: " $5
 xrdcp HiddenGluGluH*.root root://redirector.t2.ucsd.edu:1095/$5 
 rm HiddenGluGluH*.root
+ls

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-doSubmit=false
+doSubmit=true
 dt=`date '+%Y%m%d_%H%M%S'`
 reTar=false
 
@@ -25,6 +25,7 @@ map["HiddenGluGluH_mH-125_Phi-30_ctau-100_4c"]="H2H1H1_4c_M30_ctau100mm-fragment
 bash DriverCmnd_GENSIM.sh --theFragment=${map[$sampleName]}
 bash DriverCmnd_DIGI.sh > /dev/null 2>&1
 
+cp runJob.sh $lxplusBase/
 #get the two CMSSW working areas
 if [ ${reTar} = true ]
 then
@@ -44,7 +45,6 @@ cd $lxplusBase
 mkdir -p "logs/$dt"
 echo "logs at:  logs/$dt"
 Proxy_path=/afs/cern.ch/user/d/ddiaz/private/x509up
-
 
  #write base for submit file
  printf "universe = vanilla\n" > submitfile
