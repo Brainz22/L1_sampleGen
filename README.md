@@ -35,6 +35,11 @@ git clone git@github.com:ddiaz006/L1_sampleGen.git
 ```
 
 # Set up MC generation
+First source your CMSSW environment so you can run the Driver commands in the submitJobs.sh.
+```
+cd L1_sampleGen/12_5_x
+cd CMSSW_12_5_2_patch1/src/; cmsenv; cd -;
+```
 Mostly, one needs to set some options in submitJobs.sh before they can begin running MC generation.
 
 Most important is to point to proper directories
