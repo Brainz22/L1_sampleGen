@@ -2,15 +2,16 @@
 
 doSubmit=true
 dt=`date '+%Y%m%d_%H%M%S'`
-reTar=true
+reTar=false
 
 ###-----     Edit for your working area
 lxplusBase=/afs/cern.ch/work/d/ddiaz/L1SampleGen/cleanBuild
 scriptsDir=/afs/cern.ch/work/d/ddiaz/L1SampleGen/cleanBuild/L1_sampleGen/12_5_x
 ntupleDir=/afs/cern.ch/work/d/ddiaz/L1SampleGen/cleanBuild/Tuples-el8
 sampleName="HiddenGluGluH_mH-125_Phi-30_ctau-100"
+#sampleName="HiddenGluGluH_mH-125_Phi-30_ctau-100_4c"
 outdir="/store/user/ddiaz/L1LLPSample/"${sampleName}"_TuneCP5_14TeV-pythia8/condor_FALL22_UAF/$dt/0000/"
-NJobs=1
+NJobs=10
 NEvents=10 
 ###----
 

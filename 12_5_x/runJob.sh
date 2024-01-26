@@ -16,6 +16,8 @@ cd -
 
 echo @@@@@@@@@@  RUNNING STEP 1 @@@@@@@@@@@@@@@@@@@@@@
 cmsRun MakeGS_cfg.py maxEvents=$4 > /dev/null 2>&1
+echo "Do an ls to see if GENSIM rootgenerated"
+ls
 
 echo @@@@@@@@@@  RUNNING STEP 2 @@@@@@@@@@@@@@@@@@@@@@
 cmsRun MakeDIGI_cfg.py maxEvents=$4 > /dev/null 2>&1
