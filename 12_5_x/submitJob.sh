@@ -2,7 +2,7 @@
 
 doSubmit=true
 dt=`date '+%Y%m%d_%H%M%S'`
-reTar=false
+reTar=true
 
 ###-----     Edit for your working area
 lxplusBase=/afs/cern.ch/work/d/ddiaz/L1SampleGen/cleanBuild
@@ -10,7 +10,7 @@ scriptsDir=/afs/cern.ch/work/d/ddiaz/L1SampleGen/cleanBuild/L1_sampleGen/12_5_x
 ntupleDir=/afs/cern.ch/work/d/ddiaz/L1SampleGen/cleanBuild/Tuples-el8
 sampleName="HiddenGluGluH_mH-125_Phi-30_ctau-100"
 outdir="/store/user/ddiaz/L1LLPSample/"${sampleName}"_TuneCP5_14TeV-pythia8/condor_FALL22_UAF/$dt/0000/"
-NJobs=10
+NJobs=1
 NEvents=10 
 ###----
 
@@ -31,13 +31,13 @@ if [ ${reTar} = true ]
 then
   cd $scriptsDir
   tar -czf  CMSSW_125x.tar.gz CMSSW_12_5_2_patch1
-  cp CMSSW_125x.tar.gz $lxplusBase
+  mv CMSSW_125x.tar.gz $lxplusBase
   cd $lxplusBase
   pwd
   cd $ntupleDir
   pwd
   tar -czf  CMSSW_125x_tup.tar.gz CMSSW_12_5_2_patch1
-  cp CMSSW_125x_tup.tar.gz $lxplusBase
+  mv CMSSW_125x_tup.tar.gz $lxplusBase
   cd $lxplusBase
 fi
 

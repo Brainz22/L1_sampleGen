@@ -45,6 +45,9 @@ var_parsing_code="\nimport FWCore.ParameterSet.VarParsing as VarParsing\noptions
 awk -v code="$var_parsing_code" '/import/ && !added { print; print code; added=1; next }1' $theConfig > temp && mv temp $theConfig
 
 sed -i "s/input = cms.untracked.int32($nEvents)/input = cms.untracked.int32(options.maxEvents)/" $theConfig
+sed -i "s/maxEventsToPrint = cms.untracked.int32(1),/maxEventsToPrint = cms.untracked.int32(0),/" $theConfig
+sed -i "s/pythiaPylistVerbosity = cms.untracked.int32(1)/pythiaPylistVerbosity = cms.untracked.int32(0)/" $theConfig
+
 
 # Add randomizer lines
 echo -e "\n#Adding randomizer lines" >> $theConfig

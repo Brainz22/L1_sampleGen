@@ -26,7 +26,7 @@ echo "Do an ls to see if output roots both generated"
 ls
 
 echo @@@@@@@@@@  opening ntuple CMSSW @@@@@@@@@@@@@@@@@@@@@@
-#export SCRAM_ARCH=slc7_amd64_gcc10
+export SCRAM_ARCH=el8_amd64_gcc10
 tar -zxf CMSSW_125x_tup.tar.gz
 mv GENSIMDIGIRAW.root CMSSW_12_5_2_patch1/src/FastPUPPI/NtupleProducer/python/
 rm G*.root
