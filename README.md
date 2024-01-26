@@ -1,3 +1,14 @@
+# Set up Working area
+It is intended to run this code alongside the ntupler that comes from a different repository
+
+Eventually, your working area should have this code as well as the ntupler that we wil store under the directory Tuples-el8.
+
+This will be the base of our working area.
+```
+L1_sampleGen  Tuples-el8
+```
+Let's get the Tuples-el8 directory ready.
+
 # Set up Ntuple producer
 ```
 export SCRAM_ARCH=el8_amd64_gcc10
@@ -18,6 +29,11 @@ git clone git@github.com:ddiaz006/FastPUPPI.git -b 12_5_X
 
 scram b -j8
 ```
+Now, let's return to the base of our working area we can do 
+```
+git clone git@github.com:ddiaz006/L1_sampleGen.git
+```
+
 # Set up MC generation
 Mostly, one needs to set some options in submitJobs.sh before they can begin running MC generation.
 
