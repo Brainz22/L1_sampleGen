@@ -45,7 +45,9 @@ cmsRun runL1PFNTupler_Full125x.py outputFile=$2
 rm G*.root
 rm Isolation*.txt
 echo @@@@@@@@@@  ls and check that runL1PFNTupler ran @@@@@@@@@@@@@@@@@@@@@@
+rm GENSIMDIGIRAW.root
 ls
+
 
 echo @@@@@@@@@@  COPYING OUTPUT @@@@@@@@@@@@@@@@@@@@@@
 echo "copying to: " $5

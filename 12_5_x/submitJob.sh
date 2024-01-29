@@ -12,7 +12,7 @@ sampleName="HiddenGluGluH_mH-125_Phi-30_ctau-100"
 #sampleName="HiddenGluGluH_mH-125_Phi-30_ctau-100_4c"
 outdir="/store/user/ddiaz/L1LLPSample/"${sampleName}"_TuneCP5_14TeV-pythia8/condor_FALL22_UAF/$dt/0000/"
 NJobs=10
-NEvents=10 
+NEvents=100 
 ###----
 
 
@@ -49,7 +49,7 @@ Proxy_path=/afs/cern.ch/user/d/ddiaz/private/x509up
 
  #write base for submit file
  printf "universe = vanilla\n" > submitfile
- printf '+JobFlavour = "workday"\n' > submitfile
+ printf '+JobFlavour = "tomorrow"\n' > submitfile
  printf "Executable = runJob.sh\n" >> submitfile
  printf "Should_Transfer_Files = YES \n" >> submitfile
  #printf "WhenToTransferOutput = ON_EXIT\n" >> submitfile
