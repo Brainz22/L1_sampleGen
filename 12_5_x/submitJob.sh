@@ -5,21 +5,30 @@ dt=`date '+%Y%m%d_%H%M%S'`
 reTar=false
 
 ###-----     Edit for your working area
-lxplusBase=/afs/cern.ch/work/d/ddiaz/L1SampleGen/cleanBuild
-scriptsDir=/afs/cern.ch/work/d/ddiaz/L1SampleGen/cleanBuild/L1_sampleGen/12_5_x
-ntupleDir=/afs/cern.ch/work/d/ddiaz/L1SampleGen/cleanBuild/Tuples-el8
-sampleName="HiddenGluGluH_mH-125_Phi-30_ctau-100"
-#sampleName="HiddenGluGluH_mH-125_Phi-30_ctau-100_4c"
-outdir="/store/user/ddiaz/L1LLPSample/"${sampleName}"_TuneCP5_14TeV-pythia8/condor_FALL22_UAF/$dt/0000/"
-NJobs=10
+lxplusBase=$PWD/../..   #/afs/cern.ch/work/d/ddiaz/L1SampleGen/cleanBuild
+scriptsDir=$PWD   #/afs/cern.ch/work/d/ddiaz/L1SampleGen/cleanBuild/L1_sampleGen/12_5_x
+ntupleDir=${lxplusBase}/Tuples-el8  #/afs/cern.ch/work/d/ddiaz/L1SampleGen/cleanBuild/Tuples-el8
+#sampleName="HiddenGluGluH_mH-125_Phi-30_ctau-100"
+sampleName="HiddenGluGluH_mH-125_Phi-30_ctau-10_4c"
+outdir="/store/group/LLPs/L1LLPSample/"${sampleName}"_TuneCP5_14TeV-pythia8/condor_FALL22_UAF/$dt/0000/"
+NJobs=1000
 NEvents=100 
 ###----
+# Get the first letter of the username and build proxy path
+FIRST_LETTER=$(echo $USER | cut -c 1)
+Proxy_path="/afs/cern.ch/user/${FIRST_LETTER}/${USER}/private/"
 
 
 declare -A map
 
-map["HiddenGluGluH_mH-125_Phi-30_ctau-100"]="TSG-Phase2Fall22GS-00122-fragment.py"
+map["HiddenGluGluH_mH-125_Phi-30_ctau-1_4b"]="TSG-Phase2Fall22GS-00122-fragment.py"
+map["HiddenGluGluH_mH-125_Phi-30_ctau-10_4b"]="H2H1H1_4b_M30_ctau1mm-fragment.py"
+map["HiddenGluGluH_mH-125_Phi-30_ctau-100_4b"]="H2H1H1_4b_M30_ctau10mm-fragment.py"
+map["HiddenGluGluH_mH-125_Phi-30_ctau-1000_4b"]="H2H1H1_4b_M30_ctau100mm-fragment.py"
+map["HiddenGluGluH_mH-125_Phi-30_ctau-1_4c"]="H2H1H1_4c_M30_ctau1000mm-fragment.py"
+map["HiddenGluGluH_mH-125_Phi-30_ctau-10_4c"]="H2H1H1_4c_M30_ctau10mm-fragment.py"
 map["HiddenGluGluH_mH-125_Phi-30_ctau-100_4c"]="H2H1H1_4c_M30_ctau100mm-fragment.py"
+map["HiddenGluGluH_mH-125_Phi-30_ctau-1000_4c"]="H2H1H1_4c_M30_ctau1000mm-fragment.py"
 
 
 ##--Create cfg files
@@ -45,7 +54,6 @@ fi
 cd $lxplusBase
 mkdir -p "logs/$dt"
 echo "logs at:  logs/$dt"
-Proxy_path=/afs/cern.ch/user/d/ddiaz/private/x509up
 
  #write base for submit file
  printf "universe = vanilla\n" > submitfile
