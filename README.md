@@ -5,6 +5,7 @@ Eventually, your working area should have this code as well as the ntupler that 
 
 This will be the base of our working area.
 ```
+ls .
 L1_sampleGen  Tuples-el8
 ```
 Let's get the Tuples-el8 directory ready.
