@@ -25,7 +25,7 @@ git cms-addpkg L1Trigger/TrackTrigger
 git cms-addpkg SimTracker/TrackTriggerAssociation
 git cms-addpkg L1Trigger/Phase2L1ParticleFlow
 
-git clone git@github.com:ddiaz006/FastPUPPI.git -b 12_5_X
+git clone https://github.com/Brainz22/FastPUPPI.git -b 12_5_X
 
 scram b -j8
 ```
