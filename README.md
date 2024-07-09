@@ -39,11 +39,12 @@ git clone git@github.com:ddiaz006/L1_sampleGen.git
 First source your CMSSW environment so you can run the Driver commands in the submitJobs.sh.
 ```
 cd L1_sampleGen/12_5_x
+bash setup.sh
 cd CMSSW_12_5_2_patch1/src/; cmsenv; cd -;
 ```
 Mostly, one needs to set some options in submitJobs.sh before they can begin running MC generation.
 
-Most important is to point to proper directories
+Most important: Inside `submitJobs.sh` is, point to proper directories in the code segment below.
 
 ```
 doSubmit=false #If you are just testing this will prevent actual condor submission
@@ -60,7 +61,10 @@ NJobs=10
 NEvents=10 
 ###----
 ```
-
+* Then, we need to copy the proper `...-fragment.py` files into the CMSSW.
+  -  Inside `L1_sampleGen/12_5_x`, do `cp genConfigs/*.py CMSSW_12_5_2_patch1/src/Configuration/GenProduction/python/`
+ 
+Now, we can run `bash submitJobs.sh`.
 
 # Utilities
 ## Get Latest version of the fragment code
