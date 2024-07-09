@@ -61,7 +61,10 @@ NJobs=10
 NEvents=10 
 ###----
 ```
-* Then, we need to copy the proper `...-fragment.py` files into the CMSSW.
+
+# Submit Jobs
+
+* We need to copy the proper `...-fragment.py` files into the CMSSW.
   -  Inside `L1_sampleGen/12_5_x`, do `cp genConfigs/*.py CMSSW_12_5_2_patch1/src/Configuration/GenProduction/python/`
  
 * Now, we can run `bash submitJobs.sh`.
