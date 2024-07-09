@@ -64,8 +64,16 @@ NEvents=10
 * Then, we need to copy the proper `...-fragment.py` files into the CMSSW.
   -  Inside `L1_sampleGen/12_5_x`, do `cp genConfigs/*.py CMSSW_12_5_2_patch1/src/Configuration/GenProduction/python/`
  
-Now, we can run `bash submitJobs.sh`.
+* Now, we can run `bash submitJobs.sh`.
 
+* If the above commands raises the error: `Submitting job(s)ERROR: unable to read proxy file`, we need to direct it to the proxy file produced from authentication of Voms-Certificate.
+  -  `SubmitJobs.sh` has a line like `Proxy_path="/afs/cern.ch/user/${FIRST_LETTER}/${USER}/private/x509up"`.
+  -  After authenticating your Voms Certificate, a file will be created, e.g. `/tmp/x509up_u151471`. We need to copy this file as:
+  ```
+  cp /tmp/x509up_u151471 ~/private/x509up
+  ```
+  This will match the file and path in the previous bullet point.
+  
 # Utilities
 ## Get Latest version of the fragment code
 ```
