@@ -75,7 +75,7 @@ NEvents=10
   ```
   cp /tmp/x509up_u151471 ~/private/x509up
   ```
-  This will match the file and path in the previous bullet point.
+  This will match the file and path in the previous bullet point and `bash submitJobs.sh` should work.
   
 # Utilities
 ## Get Latest version of the fragment code
